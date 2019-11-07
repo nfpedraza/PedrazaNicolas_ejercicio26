@@ -1,0 +1,2 @@
+# PedrazaNicolas_ejercicio26
+ejercicio26
