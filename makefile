@@ -1,8 +1,11 @@
-areglo.dat : areglo.x
+areglo.dat : areglo.x multiplicados.dat
 	./areglo.x 
 
 multiplicados.dat : clase26.x
 	./clase26.x > multiplicados.dat
+    
+areglo.dat : areglo.x
+	./areglo.x 
 
 clase26.x : clase26.cpp
 	c++ clase26.cpp -o clase26.x
