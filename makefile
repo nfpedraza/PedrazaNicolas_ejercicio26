@@ -1,5 +1,5 @@
 areglo.dat : areglo.x
-	./areglos.x 
+	./areglo.x 
 
 multiplicados.dat : clase26.x
 	./clase26.x > multiplicados.dat
@@ -11,4 +11,4 @@ areglo.x : areglo.cpp
 	c++ areglo.cpp -o areglo.x
 	
 clean : 
-	rm clase26.x multiplicados.dat areglos.x
+	rm clase26.x multiplicados.dat areglo.x

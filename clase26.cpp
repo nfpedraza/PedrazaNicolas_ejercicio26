@@ -1,11 +1,15 @@
+//Para este ejercicio me guie enteramente del ejercicio suma.cpp, cambiandole algunos valores para poder multiplicar
 #include <fstream>
 #include <iostream>
 #include <string.h>
+// para evitar el uso de std::cout y std::endl
 using namespace std; 
 
+// se define varibles y funciones
 float * read_file(string filename, int *n_points);
-float mul_values(float *x, int n_points);
+float mul_values(float *x, float *y, int n_points);
 
+//lee los archivos .txt y los usa en la funcion que multiplica valor por valor
 int main(){
   float *x=NULL;
   float *y=NULL;
@@ -15,12 +19,11 @@ int main(){
   x = read_file("valores_x.txt", &n_x);
   y = read_file("valores_y.txt", &n_y);
   
-  cout << mul_values(x, n_x) << " " << mul_values(y, n_y) << endl;
+   mul_values(x, y, n_x);
   
-  delete [] lista;
    return 0;
 }
-
+// funcion que recibe valor por valor encontrado en el archivo.txt
 float * read_file(string filename, int *n_points){
   int n_lines=0;
   ifstream infile; 
@@ -54,14 +57,15 @@ float * read_file(string filename, int *n_points){
 
   return array;
 }
-
-float mul_values(float *x, int n_points){
+// multiplica punto a punto las dos columnas
+float mul_values(float *x, float *y, int n_points){
   float a=0;
   int i;
   
   for(i=0;i<n_points;i++){
-    a *= x[i];
+    a = x[i]*y[i];
+      cout<<a<<endl;
   }
-  return a;
+  return 0.0;
 	
 }

@@ -1,15 +1,23 @@
-//codigo modificado de los codigos existentes en el ejercicio 26 y de https://devcode.la/tutoriales/factorial-en-c++/
+//codigo modificado de los codigos existentes en el ejercicio 25 y 26 y de https://devcode.la/tutoriales/factorial-en-c++/
+
 #include <fstream>
 #include <iostream>
 #include<cmath>
+
+//se usa para evitar escribir std::cout y std::endl
 using namespace std;
-double* lista; 
+
+//inicializo variables, funciones y punteros
    int i;
    int N;
    int fact=1;
+   void facto(int N, float *a);
 
-int facto(int N){
-	
+//crea la funcion factorial, agrega el valor en la posicion e imprime el arreglo
+void facto(int N, float *a){
+    
+   cout<<"[";
+    
    if(N<0){
 	    fact =0;
    }
@@ -21,37 +29,31 @@ int facto(int N){
    else{
 	   
       for (int i = 1; i <= N; i++){
-         fact*=i;
+         fact=fact*i;
+          
+         a[i] = fact;
+    
+         cout << a[i] <<"  ";
+
+          
+   
       }
+       cout<<"]"<<endl;
 	   
    }
-   cout<<"Factorial de "<<N<<endl;
+   
 }
 
-int main (int argc, char **argv) {
+//recibe el numero de posiciones que tendra el arreglo y por ende el numero que se tendra en el factorial, llama las funciones
+int main () {
 	
 	cout<<"ingresa un numero: ";
     cin>>N;
 
-	cout << "Argumentos "<< endl;
-    for(i=0;i<argc;i++){
-    cout << i << " "<< argv[i] << endl;
-   }
+	float* lista =new float[N];
+    
+    facto(N, lista);
 
-   N = atoi(argv[1]);
-
-   lista  = new double[N * N];
-   
-   cout << "Lista sin inicializar"<< endl;
-   for (int i=0;i<N*N;i++){
-     cout << lista[i] << endl;
-   }
-   
-   cout << "Lista inicializada"<< endl;
-   for (int i=0;i<N*N;i++){
-     lista[i] = facto(i) ;
-     cout << lista[i] << endl;
-   }
    
    delete [] lista;
    return 0;
